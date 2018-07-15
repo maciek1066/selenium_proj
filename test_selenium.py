@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 def test_case1():
@@ -14,6 +15,11 @@ def test_case1():
     search_box.send_keys('download')
 
     #  Using Keys
-    search_box.send_keys(Keys.ENTER)
+    # search_box.send_keys(Keys.ENTER)
+
+    #  Using mouse click
+    act = ActionChains(driver)
+    act.click(driver.find_element_by_xpath(
+        "//a[text()='edit this page']")).perform()
 
 
